@@ -57,11 +57,11 @@ namespace PaySlipGenerator.Tests.Models
         }
 
         [DataTestMethod]
-        [DataRow(-1.1)]
-        [DataRow(1.012)]
-        public void When_AnnualSalary_is_invalid_then_model_should_be_error(double salary)
+        [DataRow(-10000)]
+        [DataRow(-1)]
+        public void When_AnnualSalary_is_invalid_then_model_should_be_error(long salary)
         {
-            _request.AnnualSalary = (decimal)salary;
+            _request.AnnualSalary = salary;
             var result = ValidateModel(_request);
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("AnnualSalary", result[0].MemberNames.First());
@@ -70,12 +70,14 @@ namespace PaySlipGenerator.Tests.Models
         [DataTestMethod]
         [DataRow(-1.1)]
         [DataRow(1.012)]
-        [DataRow(100.01)]
+        [DataRow(13)]
+        [DataRow(12.01)]
+        [DataRow(-0.01)]
         public void When_SuperInterestRate_is_invalid_then_model_should_be_error(double interest)
         {
             _request.SuperInterestRate = (decimal)interest;
             var result = ValidateModel(_request);
-            Assert.AreEqual(1, result.Count);
+            Assert.IsTrue(result.Count > 0);
             Assert.AreEqual("SuperInterestRate", result[0].MemberNames.First());
         }
 

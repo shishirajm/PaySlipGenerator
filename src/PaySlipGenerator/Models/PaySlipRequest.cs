@@ -16,17 +16,14 @@ namespace PaySlipGenerator.Models
 
         [Required]
         [RegularExpression(Constants.ValidationRegex.NumberWithTwoDecimal, ErrorMessage = "Invalid annual salary")]
-        public decimal AnnualSalary { get; set; }
+        public long AnnualSalary { get; set; }
 
         [Required]
-        [Range(0, 100)]
-        [RegularExpression(Constants.ValidationRegex.NumberWithTwoDecimal, ErrorMessage = "Invalid annual salary")]
+        [Range(0.00, 12.00)]
+        [RegularExpression(Constants.ValidationRegex.NumberWithTwoDecimal, ErrorMessage = "Invalid super interest rate.")]
         public decimal SuperInterestRate { get; set; }
 
         [Required]
         public DateTime PaymentStartDate { get; set; }
-
-        [Required]
-        public DateTime PaymentEndDate { get; set; }
     }
 }

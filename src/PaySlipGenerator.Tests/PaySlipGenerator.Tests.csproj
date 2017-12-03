@@ -81,6 +81,7 @@
     <Compile Include="Controllers\PaySlipControllerTests.cs" />
     <Compile Include="Models\PaySlipRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PaySlipCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PaySlipGenerator\PaySlipGenerator.csproj">
