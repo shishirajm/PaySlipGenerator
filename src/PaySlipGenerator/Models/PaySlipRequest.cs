@@ -9,17 +9,23 @@ namespace PaySlipGenerator.Models
         [Required]
         [RegularExpression(Constants.ValidationRegex.Name, ErrorMessage = "First name is invalid.")]
         public string FirstName { get; set; }
+
         [Required]
         [RegularExpression(Constants.ValidationRegex.Name, ErrorMessage = "Last name is invalid.")]
         public string LastName { get; set; }
+
         [Required]
         [RegularExpression(Constants.ValidationRegex.NumberWithTwoDecimal, ErrorMessage = "Invalid annual salary")]
         public decimal AnnualSalary { get; set; }
+
         [Required]
+        [Range(0, 100)]
         [RegularExpression(Constants.ValidationRegex.NumberWithTwoDecimal, ErrorMessage = "Invalid annual salary")]
         public decimal SuperInterestRate { get; set; }
+
         [Required]
         public DateTime PaymentStartDate { get; set; }
+
         [Required]
         public DateTime PaymentEndDate { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PaySlipGenerator.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace PaySlipGenerator
     {
         protected void Application_Start()
         {
+            DependencyConfig.Configure();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

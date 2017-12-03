@@ -7,11 +7,17 @@ namespace PaySlipGenerator.Models
 {
     public class PaySlipResponse
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public decimal AnnualSalary { get; set; }
-        public decimal SuperInterestRate { get; set; }
-        public DateTime PaymentStartDate { get; set; }
-        public DateTime PaymentEndDate { get; set; }
+        public string Name { get; set; }
+        public long GrossIncome { get; set; }
+        public long IncomeTax { get; set; }
+        public long NetIncome { get; set; }
+        public decimal SuperAmount { get; set; }
+        public Payment PaymentDetails { get; set; }
+    }
+
+    public class Payment
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PaySlipGenerator.Services;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
@@ -17,6 +15,7 @@ namespace PaySlipGenerator.App_Start
             var builder = new ContainerBuilder();
             var config = GlobalConfiguration.Configuration;
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterType<PaySlipCalculator>().As<IPaySlipCalculator>().SingleInstance();
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             return container;

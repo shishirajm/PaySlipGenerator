@@ -70,6 +70,7 @@ namespace PaySlipGenerator.Tests.Models
         [DataTestMethod]
         [DataRow(-1.1)]
         [DataRow(1.012)]
+        [DataRow(100.01)]
         public void When_SuperInterestRate_is_invalid_then_model_should_be_error(double interest)
         {
             _request.SuperInterestRate = (decimal)interest;
