@@ -14,7 +14,7 @@ namespace PaySlipGenerator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             return Ok(request);
