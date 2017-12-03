@@ -12,12 +12,6 @@ namespace PaySlipGenerator.Models
         public long IncomeTax { get; set; }
         public long NetIncome { get; set; }
         public decimal SuperAmount { get; set; }
-        public Payment PaymentDetails { get; set; }
-    }
-
-    public class Payment
-    {
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string PaymentPeriod { get; set; }
     }
 }

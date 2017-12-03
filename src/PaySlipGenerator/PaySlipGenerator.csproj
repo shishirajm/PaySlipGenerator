@@ -136,6 +136,7 @@
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Models\PaySlipResponse.cs" />
     <Compile Include="Models\PaySlipRequest.cs" />
+    <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IPaySlipCalculator.cs" />
     <Compile Include="Services\PaySlipCalculator.cs" />
