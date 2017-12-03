@@ -1,0 +1,14 @@
+# File extensions
+*.com
+*.class
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+
+# Folders
+bin/
+obj/
+TestResults/
