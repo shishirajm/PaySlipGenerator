@@ -1,8 +1,6 @@
 # File extensions
 *.com
 *.class
-*.dll
-*.exe
 *.pdb
 *.dll.config
 *.cache
