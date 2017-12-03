@@ -1,13 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
+﻿using Moq;
 using PaySlipGenerator.Controllers;
 using PaySlipGenerator.Models;
+using PaySlipGenerator.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PaySlipGenerator.Tests.Controllers
 {
@@ -16,11 +13,15 @@ namespace PaySlipGenerator.Tests.Controllers
     {
         private PaySlipController _controller;
         private PaySlipRequest _request;
+        private Mock<IPaySlipCalculator> _paySlipCalculator;
 
         [TestInitialize]
         public void SetUp()
         {
-            _controller = new PaySlipController();
+            _paySlipCalculator = new Mock<IPaySlipCalculator>();
+            _paySlipCalculator.Setup(x => x.GetPaySlip(It.IsAny<PaySlipRequest>()))
+                .Returns(Task.FromResult(new PaySlipResponse()));
+            _controller = new PaySlipController(_paySlipCalculator.Object);
             _request = new PaySlipRequest {
                 AnnualSalary = 10000,
                 FirstName = "Shishira",
@@ -31,18 +32,12 @@ namespace PaySlipGenerator.Tests.Controllers
         }
 
         [TestMethod]
-        public void When_FirstName_is_invalid_then_bad_request_is_expected()
+        public async Task When_FirstName_is_invalid_then_bad_request_is_expected()
         {
-            _request.FirstName = "";
-            var result = _controller.GetPaySlip(_request).Result;
-        }
-
-        private IList<ValidationResult> ValidateModel(object model)
-        {
-            var validationResults = new List<ValidationResult>();
-            var ctx = new ValidationContext(model, null, null);
-            Validator.TryValidateObject(model, ctx, validationResults, true);
-            return validationResults;
+            _controller = new PaySlipController(_paySlipCalculator.Object);
+            _controller.ModelState.AddModelError("FirstName", "Invalid");
+            var result = await _controller.GetPaySlip(_request);
+            //Assert.AreEqual(null, result);
         }
     }
 }
