@@ -1,0 +1,130 @@
+{
+	"id": "170d6a6a-4760-0ee2-83b0-d372d7ff66da",
+	"name": "PaySlip",
+	"description": "",
+	"order": [
+		"fd0e8b32-db6e-8639-d0f9-8d0dabdd0b65",
+		"cdd04030-0cf1-acd5-2cbf-f0d05e9a1f05"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1512311878933,
+	"owner": "2134294",
+	"public": false,
+	"requests": [
+		{
+			"id": "cdd04030-0cf1-acd5-2cbf-f0d05e9a1f05",
+			"headers": "",
+			"headerData": [],
+			"url": "http://payslipgen.azurewebsites.net/api/payslip?firstName=Shishira&LastName=Mallasandra&annualSalary=100000&SuperInterestRate=9.5&PaymentStartDate=3-22-2018",
+			"queryParams": [
+				{
+					"key": "firstName",
+					"value": "Shishira",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "LastName",
+					"value": "Mallasandra",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "annualSalary",
+					"value": "100000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "SuperInterestRate",
+					"value": "9.5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "PaymentStartDate",
+					"value": "3-22-2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1512316601819,
+			"name": "payslip azure",
+			"description": "",
+			"collectionId": "170d6a6a-4760-0ee2-83b0-d372d7ff66da",
+			"responses": []
+		},
+		{
+			"id": "fd0e8b32-db6e-8639-d0f9-8d0dabdd0b65",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:14431/api/payslip?firstName=Shishira&LastName=Mallasandra&annualSalary=100000&SuperInterestRate=9.5&PaymentStartDate=2-22-2018",
+			"queryParams": [
+				{
+					"key": "firstName",
+					"value": "Shishira",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "LastName",
+					"value": "Mallasandra",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "annualSalary",
+					"value": "100000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "SuperInterestRate",
+					"value": "9.5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "PaymentStartDate",
+					"value": "2-22-2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1512372250240,
+			"name": "payslip get",
+			"description": "",
+			"collectionId": "170d6a6a-4760-0ee2-83b0-d372d7ff66da",
+			"responses": []
+		}
+	]
+}
