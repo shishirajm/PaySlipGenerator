@@ -25,6 +25,7 @@ Design decision:
  * Haven't added the error handling, in case it fails 500 status code will be returned.
  * Since the asp.net web api can be hosted on all the cloud platform choose asp.net
  * HttpGet is being used and the parameters are passed using the URL. Would have liked to pass the parameter in a body but since I was using post man it wont allow to pass get parameters in body.
+ * UI/Client is currently not built.
  
 Deployment
 
@@ -40,6 +41,10 @@ Source code path:
 Running the application:
  * Import postman collection to Postman client from PaySlipGenerator\tools\Postman on https://github.com/shishirajm/PaySlipGenerator
  * Execute changing the input.
+ 
+Test harness
+ * Download tools\TestHarness\textbox.html and tools\TestHarness\jquery2.js into same folder.
+ * Run the html in browser.
  
 
 Request Format:
