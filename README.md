@@ -17,6 +17,7 @@ Assumptions:
 	* Numbers are always non negative.
 	* Names can be alpha numeric with ' allowed.
 	* Super interest acccepts number between 0 and 12.
+	* Data binding would take care of the date mapping.
 	
 Design decision:
  
@@ -26,6 +27,8 @@ Design decision:
  * Since the asp.net web api can be hosted on all the cloud platform choose asp.net
  * HttpGet is being used and the parameters are passed using the URL. Would have liked to pass the parameter in a body but since I was using post man it wont allow to pass get parameters in body.
  * UI/Client is currently not built.
+ * Added ms unit tests for all the core logic.
+ * Test harness is just throw away code.
  
 Deployment
 
@@ -43,7 +46,9 @@ Running the application:
  * Execute changing the input.
  
 Test harness
- * Download tools\TestHarness\textbox.html and tools\TestHarness\jquery2.js into same folder.
+ * Download 
+	* https://github.com/shishirajm/PaySlipGenerator/blob/master/tools/TestHarness/jquery2.js and 
+	* https://github.com/shishirajm/PaySlipGenerator/blob/master/tools/TestHarness/textbox.html into same folder.
  * Run the html in browser.
  
 
