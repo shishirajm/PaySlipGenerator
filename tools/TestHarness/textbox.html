@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>Test harness - Pay slip generator</title>
+    <script type="text/javascript" src="./jquery2.js"></script>
+    <script type="text/javascript">
+	  $(function () {
+		$("button").click(function(){
+			$("#paySlip").hide();
+			$("#error").hide();
+			var fn = $("#firstName")[0].value;
+			var ln = $("#lastName")[0].value;
+			var a = $("#annualSalary")[0].value;
+			var sup = $("#super")[0].value;
+			var start = $("#start")[0].value;
+			$.ajax({
+				url: "http://payslipgen.azurewebsites.net/api/payslip?firstName="+ fn+"&LastName="+ln+"&annualSalary="+a+"&SuperInterestRate="+sup+"&PaymentStartDate="+start, 
+				success: function(result){
+					$("#name").html(result.Name);
+					$("#period").html(result.PaymentPeriod);
+					$("#grossIncome").html(result.GrossIncome);
+					$("#incomeTax").html(result.IncomeTax);
+					$("#netIncome").html(result.NetIncome);
+					$("#superAmount").html(result.SuperAmount);
+					$("#paySlip").show();
+				},
+				error: function(x, s, e){
+					$("#status").html(e);
+					$("#reason").html(x.responseText);
+					$("#error").show();
+				}
+			});
+		});
+	  });
+    </script>
+  </head>
+  <body>
+	<table>
+		<tr>
+			<td>First Name</td><td> <input type="text" value="Robert" id="firstName"></td>
+		</tr>
+		<tr>
+			<td>Last Name</td><td> <input type="text" value="Downey" id="lastName"></td>
+		</tr>
+		<tr>
+			<td>Annual Salary</td><td> <input type="number" value="120000" id="annualSalary"></td>
+		</tr>
+		<tr>
+			<td>Super Rate</td><td> <input type="number" value="10" id="super"></td>
+		</tr>
+		<tr>
+			<td>Payment Start</td><td> <input type="text" value="1 March" id="start"></td>
+		</tr>
+		<tr>
+			<td><button>Submit</button></td><td></td>
+		</tr>
+	</table>
+	<p>
+	<div id="paySlip" style="display:none">
+		<table>
+			<tr>
+				<th>PaySlip</th><th></th>
+			</tr>
+			<tr>
+				<th>Name</th><td id="name"> </td>
+			</tr>
+			<tr>
+				<th>Period</th><td id="period"> </td>
+			</tr>
+			<tr>
+				<th>Gross Income</th><td id="grossIncome"> </td>
+			</tr>
+			<tr>
+				<th>Income Tax</th><td id="incomeTax"> </td>
+			</tr>			
+			<tr>
+				<th>Net Income</th><td id="netIncome"> </td>
+			</tr>
+			<tr>
+				<th>Super Amount</th><td id="superAmount"> </td>
+			</tr>
+		</table>
+	</div>
+	</p>
+	<p>
+		<div id="error" style="display:none;color:red">
+			<div id="status"></div>
+			<div id="reason"></div>
+		</div>
+	</p>
+  </body>
+</html>
