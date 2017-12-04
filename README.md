@@ -18,6 +18,30 @@ Assumptions:
 	* Names can be alpha numeric with ' allowed.
 	* Super interest acccepts number between 0 and 12.
 	
+Design decision:
+ 
+ * Built this as a language agnosticc micro service so it can be consumed by any web client.
+ * The tool can be extended later to pass in the year. Based on different tax slab for the year, payslip can be generated.
+ * Haven't added the error handling, in case it fails 500 status code will be returned.
+ * Since the asp.net web api can be hosted on all the cloud platform choose asp.net
+ * HttpGet is being used and the parameters are passed using the URL. Would have liked to pass the parameter in a body but since I was using post man it wont allow to pass get parameters in body.
+ 
+Deployment
+
+ * Currently the app is hosted in the azure on http://payslipgen.azurewebsites.net
+ * It is deployed using https://portal.azure.com pointing to git source
+ * If needed to run on local system would need iis or iis express.
+ * IIS deployment. Need to follow normal deployment process to deploy the app to IIS. Use msbuild or visual studio to build the solution. Add virtual directory and then access.
+ * IIS express deplyment. Click F5 on visual studio.
+
+Source code path:
+ * https://github.com/shishirajm/PaySlipGenerator 
+ 
+Running the application:
+ * Import postman collection to Postman client from PaySlipGenerator\tools\Postman on https://github.com/shishirajm/PaySlipGenerator
+ * Execute changing the input.
+ 
+
 Request Format:
 
 Http request:
