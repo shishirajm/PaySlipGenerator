@@ -3,6 +3,8 @@ Generates the pay slips for employees based on inputs and tax slabs.
 Changes made by manasa
 Assumptions: number 1
 
+Assumptions of this repo:
+
 	Requirements
 
 	* First phase is building a micro service, which exposes a api. This consumes the PaySlip request model and provides the calcualted fields for the pay slip.
