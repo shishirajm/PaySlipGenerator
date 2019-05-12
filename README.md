@@ -1,7 +1,6 @@
 # PaySlipGenerator
 Generates the pay slips for employees based on inputs and tax slabs.
 Changes made by manasa
-Assumptions: number 1
 
 Assumptions of this repo:
 
